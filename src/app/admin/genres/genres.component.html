@@ -1,0 +1,21 @@
+<h2>Gestion des genres</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let genre of listGenres">
+        <td>{{genre.name}}</td>
+        <td>
+            <button routerLink="/admin/genres/update/{{genre.id}}">Modifier</button>
+            <button (click)="deleteGenre(genre.id)">Supprimer</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="/admin/genres/create">Ajouter un genre</a>

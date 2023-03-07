@@ -1,0 +1,20 @@
+<h2>Création d'un genre</h2>
+
+<div class="mb-2">
+    <a routerLink="/admin/genres">Revenir à la liste des genres</a>
+
+</div>
+
+<form [formGroup]="genreForm" (ngSubmit)="createGenre()" >
+    <div class="form-group mb-2">
+        <label for="name" name="genre">Nom du genre</label>
+        <input type="text" id="name" name="genre" formControlName="name">
+        <span *ngIf="genreForm.get('name')?.errors?.['required'] && genreForm.get('name')?.touched" class="txt-danger">Ce champ est requis</span>
+        <span *ngIf="genreForm.get('name')?.errors?.['maxlength']" class="txt-danger">Le nom doit faire maximum 50 caractères</span>
+        <span *ngIf="uniqueNameError.length > 0" class="txt-danger">{{uniqueNameError}}</span>
+    </div>
+
+    <button type="submit">Créer le genre</button>
+
+
+</form>
