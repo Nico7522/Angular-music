@@ -1,11 +1,32 @@
 <h2>Se connecter</h2>
 
 <div>
-    <form>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group mb-2">
+      <label for="email">Email :</label>
+      <input type="email" id="email" formControlName="email" />
+      <span
+        *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched"
+      >
+        Ce champs est requis
+      </span>
+      <span
+        *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.dirty && loginForm.get('email')?.touched"
+        >Vous devez entrer un email valide</span
+      >
+    </div>
+    <div class="form-group mb-2">
+      <label for="pwd">Mot de passe :</label>
+      <input type="password" id="pwd" formControlName="password" />
+      <span
+        *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched"
+      >
+        Ce champs est requis
+      </span>
+    </div>
 
-        
-    </form>
-
+    <button type="submit">Se connecter</button>
+  </form>
 </div>
 
 <a routerLink="/register">Pas de compte ? Cliquez ici pour en créer un</a>

@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './auth/login/login.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule //Pour pouvoir utiliser HttpClient dans nos services
+    HttpClientModule, //Pour pouvoir utiliser HttpClient dans nos services
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

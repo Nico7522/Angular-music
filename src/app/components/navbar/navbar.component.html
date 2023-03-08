@@ -11,7 +11,7 @@
         </li>
     </ul>
     <div class="buttons">
-        <button routerLink="/login">Se connecter</button>
-        <button>Se déconnecter</button>
+        <button *ngIf="!isConnected" routerLink="/login">Se connecter</button>
+        <button *ngIf="isConnected" (click)="disconnect()">Se déconnecter</button>
     </div>
 </nav>
