@@ -1,1 +1,27 @@
-<p>artists works!</p>
+<h2>Gestion des artistes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let artist of listArtists">
+    <tr>
+      <td>
+        {{ artist.firstname }}
+      </td>
+      <td>
+        {{ artist.lastname }}
+      </td>
+      <td>
+        <button routerLink="/admin/artists/update/{{artist.id}}">Modifier</button>
+        <button (click)="deleteArtist(artist.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="/admin/artists/create">Ajouter un artiste à la liste</a>

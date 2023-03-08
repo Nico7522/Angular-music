@@ -1,0 +1,27 @@
+<h2>Modification de l'artiste</h2>
+
+<div class="mb-2">
+  <a routerLink="/admin/artists">Revenir à la liste des artistes</a>
+</div>
+<form [formGroup]="artistForm" (ngSubmit)="updateArtist()">
+  <div class="form-group mb-2">
+    <label for="nom">Nom : </label>
+    <input type="text" id="nom" formControlName="firstname">
+    <span *ngIf="artistForm.get('firstname')?.errors?.['required'] && artistForm.get('firstname')?.touched" class="txt-danger">Ce champ est requis</span>
+
+    <label for="prénom">Prénom : </label>
+    <input type="text" id="prénom" formControlName="lastname">
+    <span *ngIf="artistForm.get('lastname')?.errors?.['required'] && artistForm.get('lastname')?.touched" class="txt-danger">Ce champ est requis</span>
+
+    <label for="birthdate">Année de naissance : </label>
+    <input type="date" id="birthdate" formControlName="birthdate">
+
+    <label for="deathdate">Année de mort : </label>
+    <input type="date" id="deathdate" formControlName="deathdate">
+
+    <!-- <span *ngIf="errorMsg.length > 0" class="txt-danger">{{errorMsg}}</span> -->
+
+    <button type="submit">Modifier</button>
+
+  </div>
+</form>
