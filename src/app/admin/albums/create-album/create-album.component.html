@@ -1,0 +1,15 @@
+<h2>Création des albums</h2>
+
+<form [formGroup]="albumForm" (ngSubmit)="createAlbum()">
+    <div>
+        <label for="title">Titre : </label>
+        <input type="text" id="title" formControlName="title">
+    </div>
+
+    <div>
+        <label for="cover">Poster une cover ?</label>
+        <input type="file" id="cover" formControlName="cover">
+    </div>
+
+    <button type="submit">Créer l'album</button>
+</form>

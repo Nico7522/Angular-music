@@ -1,1 +1,15 @@
-<p>albums works!</p>
+<h2>Gestion des albums</h2>
+
+<div class="container" *ngFor="let album of listAlbum">
+  <div>
+    <h3>{{ album.title }}</h3>
+  </div>
+  <div>
+    <!-- <img [src]="'http://localhost:8080/images/covers' + album.cover.slice(11)" /> -->
+    <img [src]="album.cover.includes('fakepath') ? 'http://localhost:8080/images/covers'+ album.cover.slice(11) : 'http://localhost:8080' + album.cover" />
+  </div>
+  <button>Modifier</button>
+  <button (click)="deleteAlbum(album.id)">Supprimer</button>
+</div>
+
+<button routerLink="/admin/albums/create">Ajouter un album</button>
